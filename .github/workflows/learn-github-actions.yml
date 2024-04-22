@@ -1,11 +1,20 @@
+# name of workflow to appear in actions tab - optional  
 name: learn-github-actions
+# name for workflow runs generated from workflow
+# appears in list of workflow runs - optional 
 run-name: ${{ github.actor }} is learning GitHub Actions
+# specifying trigger for workflow 
 on: [push]
+# grouping together all jobs
 jobs:
+  # name of job 
   check-bats-version:
+    # Configures the job to run on the latest version of an Ubuntu Linux runner.
     runs-on: ubuntu-latest
     steps:
+      # specifies step will run v4 of the actions/checkout action 
       - uses: actions/checkout@v4
+      # installs specified version of Node.js 
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
