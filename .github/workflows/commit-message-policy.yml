@@ -9,7 +9,7 @@ on:
 jobs:
   validate-commit-message:
     name: commit-template-validation
-    runs-on: comcast-runner
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout custom python internal repo
         uses: actions/checkout@v3
