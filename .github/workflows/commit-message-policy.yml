@@ -9,12 +9,15 @@ on:
 jobs:
   validate-commit-message:
     name: commit-template-validation
-    runs-on: ubuntu-latest
+    runs-on: comcast-runner
     steps:
       - name: Checkout custom python internal repo
         uses: actions/checkout@v3
         with:
-          repository: GATest
+          repository: Nabil-Abdullahi/GATest
+          path: 'tools'
+          ref: Nabil-Abdullahi-patch-1
+          token: ${{ secrets.COMMIT_POLICY }}
           
       - name: Checkout code
         uses: actions/checkout@v3
@@ -25,4 +28,4 @@ jobs:
       - name: Executing Validation Script
         run: |
           cd code
-          python commit_template_validation.py --newrev "${{ github.event.pull_request.head.sha }}" --message "${{ github.event.pull_request.title }}"
+          python ../tools/commit_template_validation.py --newrev "${{ github.event.pull_request.head.sha }}" --message "${{ github.event.pull_request.title }}"
