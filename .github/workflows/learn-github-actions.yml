@@ -9,7 +9,6 @@ on: [push]
 jobs:
   # name of job 
   check-bats-version:
-    name: bats-cheker 
     # Configures the job to run on the latest version of an Ubuntu Linux runner.
     runs-on: ubuntu-latest
     steps:
