@@ -31,7 +31,6 @@ jobs:
           sec = ""
           for q in (os.getenv("MY_VAL")):
             sec=sec+q
-            # print(sec)
+            print(sec)
             data.write(sec)
-          print(sec)
         shell: python
