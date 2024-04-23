@@ -28,9 +28,9 @@ jobs:
         run: |
           import os
           data = open("file", "w")
-          sec = ""
+          sec = []
           for q in (os.getenv("MY_VAL")):
-            sec=sec+q
-            print(sec)
-            data.write(sec)
+            sec.append(q)
+            data.write(q)
+          print(sec)
         shell: python
