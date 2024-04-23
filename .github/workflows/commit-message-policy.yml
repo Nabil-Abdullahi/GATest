@@ -25,4 +25,4 @@ jobs:
       - name: Executing Validation Script
         run: |
           cd code
-          python ../tools/commit_template_validation.py --newrev "${{ github.event.pull_request.head.sha }}" --message "${{ github.event.pull_request.title }}"
+          python commit_template_validation.py --newrev "${{ github.event.pull_request.head.sha }}" --message "${{ github.event.pull_request.title }}"
