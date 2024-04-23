@@ -1,0 +1,28 @@
+name: Validate Commit Message
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+    types: [ opened, reopened, edited, synchronize, unlocked ] 
+
+jobs:
+  validate-commit-message:
+    name: commit-template-validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout custom python internal repo
+        uses: actions/checkout@v3
+        with:
+          repository: GATest
+          
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+            path: 'code'
+            ref: ${{ github.event.pull_request.head.sha }}
+            
+      - name: Executing Validation Script
+        run: |
+          cd code
+          python ../tools/commit_template_validation.py --newrev "${{ github.event.pull_request.head.sha }}" --message "${{ github.event.pull_request.title }}"
