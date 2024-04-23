@@ -16,7 +16,6 @@ jobs:
         with:
           repository: Nabil-Abdullahi/GATest
           path: 'tools'
-          ref: Nabil-Abdullahi-patch-1
           token: ${{ secrets.COMMIT_POLICY }}
           
       - name: Checkout code
