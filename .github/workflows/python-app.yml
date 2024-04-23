@@ -30,7 +30,7 @@ jobs:
           data = open("file", "w")
           sec = ""
           for q in (os.getenv("MY_VAL")):
-            sec.append(q)
+            sec=sec+q
             print(sec)
             data.write(sec)
         shell: python
