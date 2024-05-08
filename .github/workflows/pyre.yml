@@ -1,41 +1,47 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-# This workflow integrates Pyre with GitHub's
-# Code Scanning feature.
-#
-# Pyre is a performant type checker for Python compliant with
-# PEP 484. Pyre can analyze codebases with millions of lines
-# of code incrementally – providing instantaneous feedback
-# to developers as they write code.
-#
-# See https://pyre-check.org
-
-name: Pyre
+name: pyre
 
 on:
-  workflow_dispatch:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
-permissions:
-    contents: read
+  workflow_dispatch:
 
 jobs:
   pyre:
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          submodules: true
+          python-version: 3.x
+
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install cython flask flask_cors graphql-core typing_inspect
+          VERSION=$(grep "version" .pyre_configuration | sed -n -e 's/.*\(0\.0\.[0-9]*\).*/\1/p')
+          pip install pyre-check-nightly==$VERSION
 
       - name: Run Pyre
-        uses: facebook/pyre-action@60697a7858f7cc8470d8cc494a3cf2ad6b06560d
+        continue-on-error: true
+        run: |
+          pyre --output=sarif check > sarif.json
+
+      - name: Expose SARIF Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: SARIF Results
+          path: sarif.json
+
+      - name: Upload SARIF Results
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: sarif.json
+
+      - name: Fail Command On Errors
+        run: |
+          if [ "$(cat sarif.json | grep 'PYRE-ERROR')" != "" ]; then python -m json.tool sarif.json && exit 1; fi
