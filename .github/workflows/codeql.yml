@@ -19,21 +19,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Init with default CodeQL bundle from the VM image
-      id: init-default
-      uses: ./init
-      with:
-        languages: python
-    - name: Remove empty database
-      # allows us to run init a second time
-      run: |
-        rm -rf "$RUNNER_TEMP/codeql_databases"
     - name: Init with latest CodeQL bundle
       id: init-latest
       uses: ./init
       with:
         tools: latest
-        languages: javascript
+        languages: python
     - name: Compare default and latest CodeQL bundle versions
       id: compare
       env:
