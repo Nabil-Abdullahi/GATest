@@ -4,5 +4,5 @@ access_token="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"
 print("hello")
 d = input((str("Hello: ")))
 if type(d) == str:
-  for i in range(0, 5);
+  for i in range(0, 5):
     print(access_token)
