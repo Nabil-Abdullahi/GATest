@@ -46,8 +46,6 @@ jobs:
           build-mode: none
         - language: c-cpp
           build-mode: manual
-        - language: csharp
-          build-mode: autobuild
         - language: java-kotlin
           build-mode: none # analyzes Java only  
         # CodeQL supports the following values keywords for 'language': 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift'
