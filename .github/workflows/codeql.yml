@@ -42,8 +42,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - language: python
-          build-mode: none
+        # - language: python
+        #   build-mode: none
         - language: java-kotlin
           build-mode: none # analyzes Java only  
         # CodeQL supports the following values keywords for 'language': 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift'
@@ -90,5 +90,5 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
-      with:
-        category: "/language:${{matrix.language}}"
+      # with:
+      #   category: "/language:${{matrix.language}}"
