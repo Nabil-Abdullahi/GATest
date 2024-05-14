@@ -1,1 +1,0 @@
-{"timestamp":"2024-05-13T13:46:50.245+00:00","source":{"id":"cli/sip-enablement","name":"macOS SIP enablement status"},"severity":"note","visibility":{"cliSummaryTable":false,"statusPage":false,"telemetry":true},"attributes":{"isEnabled":true}}
