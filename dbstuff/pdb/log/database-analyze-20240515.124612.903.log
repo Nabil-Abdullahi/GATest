@@ -1,0 +1,14 @@
+[2024-05-15 12:46:12] This is codeql database analyze dbstuff/pdb qlpack.yml --format=csv --output=dbstuff/aoutput.csv
+[2024-05-15 12:46:12] Log file was started late.
+[2024-05-15 12:46:12] [PROGRESS] database analyze> Running queries.
+[2024-05-15 12:46:12] Running plumbing command: codeql database run-queries --evaluator-log-level=5 --warnings=show --qlconfig-file=/Users/nabdul136@emea.comcast.com/work_space/gitstuffs/GATest/qlconfig.yml --no-rerun --interpret-passthrough=null,--format=csv,-o=/Users/nabdul136@emea.comcast.com/work_space/gitstuffs/GATest/dbstuff/aoutput.csv,--max-paths=4,--csv-location-format=line-column,--print-diagnostics-summary,--print-metrics-summary,--qlconfig-file=/Users/nabdul136@emea.comcast.com/work_space/gitstuffs/GATest/qlconfig.yml,--,/Users/nabdul136@emea.comcast.com/work_space/gitstuffs/GATest/dbstuff/pdb,qlpack.yml -- /Users/nabdul136@emea.comcast.com/work_space/gitstuffs/GATest/dbstuff/pdb qlpack.yml
+[2024-05-15 12:46:12] Calling plumbing command: codeql resolve ram --dataset=/Users/nabdul136@emea.comcast.com/work_space/gitstuffs/GATest/dbstuff/pdb/db-python --format=json
+[2024-05-15 12:46:12] [PROGRESS] resolve ram> Stringpool size measured as 11567514
+[2024-05-15 12:46:12] Plumbing command codeql resolve ram completed:
+                      [
+                        "-J-Xmx3284M",
+                        "--off-heap-ram=4087"
+                      ]
+[2024-05-15 12:46:12] Chaining via /var/folders/wp/8s5_lstx63x053p98kf75kgm0000gp/T/codeql.XXXXXXXX.QEHHZ2lWtR to plumbing: execute queries -J-Xmx3284M --off-heap-ram=4087 --verbosity=progress --logdir=/Users/nabdul136@emea.comcast.com/work_space/gitstuffs/GATest/dbstuff/pdb/log --evaluator-log-level=5 --warnings=show --qlconfig-file=/Users/nabdul136@emea.comcast.com/work_space/gitstuffs/GATest/qlconfig.yml --no-rerun --interpret-passthrough=null,--format=csv,-o=/Users/nabdul136@emea.comcast.com/work_space/gitstuffs/GATest/dbstuff/aoutput.csv,--max-paths=4,--csv-location-format=line-column,--print-diagnostics-summary,--print-metrics-summary,--qlconfig-file=/Users/nabdul136@emea.comcast.com/work_space/gitstuffs/GATest/qlconfig.yml,--,/Users/nabdul136@emea.comcast.com/work_space/gitstuffs/GATest/dbstuff/pdb,qlpack.yml --output=/Users/nabdul136@emea.comcast.com/work_space/gitstuffs/GATest/dbstuff/pdb/results -- /Users/nabdul136@emea.comcast.com/work_space/gitstuffs/GATest/dbstuff/pdb/db-python qlpack.yml
+[2024-05-15 12:46:12] Plumbing command codeql database run-queries completed with status 70.
+[2024-05-15 12:46:12] Exiting with code 70
