@@ -21,7 +21,7 @@ jobs:
       - run: npm install -g bats
       - run: bats -v
       - run: |
-          git log --graph > log.txt
+          git log --graph --oneline > log.txt
           cat log.txt
       - run: echo ${{ secrets.TEST }}
       - name: Set env as secret
